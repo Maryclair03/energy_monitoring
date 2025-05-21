@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: energy-monitoring
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn energy_monitor.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: your-strong-secret-key
+      - key: DEBUG
+        value: "False"
